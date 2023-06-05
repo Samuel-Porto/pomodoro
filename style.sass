@@ -1,0 +1,28 @@
+@use 'styles/_tarefas.sass'
+@use 'styles/_timers.sass'
+@use 'styles/_configuracoes.sass'
+@use 'styles/_descricao.sass'
+    
+:root
+    --cor-fonte-claro: #E9F8F9
+    --cor-fonte-medio: #DBDFEA
+    --cor-fonte-escuro: #181823
+
+    --cor-fundo-tarefas: #FDFDBD
+    --cor-fundo-tarefas-destacado: #C8FFD4
+    --cor-fundo-adicionar-tarefas-input: #F8C4B4
+
+    --cor-fundo-timer: #8EA7E9
+    --cor-fundo-timer-destacado: #7286D3
+    --cor-fundo-timer-botao: #146C94
+
+    --cor-borda: #FFACB7
+    --fonte-principal: 'Montserrat', sans-serif
+
+body
+    font-family: var(--fonte-principal)
+
+.pomodoro_container
+    background: var(--cor-fundo-timer)
+    min-height: 100vh
+    border-bottom: 2px solid var(--cor-borda)

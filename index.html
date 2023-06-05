@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Pomodoro timer</title>
+</head>
+<body>
+    <section class="pomodoro_container">
+        <section class="tarefas_container">
+            <h3 class="tarefas_titulo">Tarefas</h3>
+            <div class="tarefas">
+                <div class="tarefa">
+                    <p>Html</p>
+                    <button class="tarefa_ver-mais"><img src="img/down_button.svg" alt="Ver mais"></button>
+                </div>
+                <div class="tarefa">
+                    <p>Css</p>
+                    <button class="tarefa_ver-mais"><img src="img/down_button.svg" alt="Ver mais"></button>
+                </div>
+                <div class="tarefa">
+                    <p>JavaScript</p>
+                    <button class="tarefa_ver-mais"><img src="img/down_button.svg" alt="Ver mais"></button>
+                </div>
+            </div>
+            <div class="adicionar-tarefa_campo">
+                <input type="text" class="nova-tarefa_nome">
+                <button class="nova-tarefa_botao"><img src="img/add_button.svg" alt="adicionar"></button>
+            </div>
+        </section>
+        <section class="timers_container">
+            <div class="timers_configuracao" data-configuracoes>
+                <form class="configuracao_formulario">
+                    <fieldset class="configuracao_formulario-campo nome-atividade">
+                        <input type="text" value="Atividade" data-nome="atividade">
+                        <p class="formulario_campo-descricao">Nome da atividade</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo tempo_atividade">
+                        <div class="tempo_formulario">
+                            <input class="minutos" type="text" placeholder="mm" maxlength="2" value="25" data-input="atividade-minuto">
+                            <p>:</p>
+                            <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="atividade-segundo">
+                        </div>
+                        <p class="formulario_campo-descricao">Atividade</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo tempo_descanso">
+                        <div class="tempo_formulario">
+                            <input class="minutos" type="text" placeholder="mm" maxlength="2" value="05" data-input="descanso-minuto">
+                            <p>:</p>
+                            <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="descanso-segundo">
+                        </div>
+                        <p class="formulario_campo-descricao">Descanso</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo tempo_descanso-longo">
+                        <div class="tempo_formulario">
+                            <input class="minutos" type="text" placeholder="mm" maxlength="2" value="15" data-input="descanso-longo-minuto">
+                            <p>:</p>
+                            <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="descanso-longo-segundo">
+                        </div>
+                        <p class="formulario_campo-descricao">Descanso longo</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo temas">
+                        <div class="temas-opcoes">
+                            <div class="tema-opcao">
+                                <canvas width="32" height="32"></canvas>
+                            </div>
+                            <div class="tema-opcao">
+                                <canvas width="32" height="32"></canvas>
+                            </div>
+                            <div class="tema-opcao">
+                                <canvas width="32" height="32"></canvas>
+                            </div>
+                            <div class="tema-opcao">
+                                <canvas width="32" height="32"></canvas>
+                            </div>
+                        </div>
+                        <p class="formulario_campo-descricao">Temas</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo ativar-descanso-auto">
+                        <input class="auto-descanso checkbox-style" type="checkbox">
+                        <p class="formulario_campo-descricao">Ativar descanso automaticamente</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo ativar-sons">
+                        <input class="sons checkbox-style" type="checkbox">
+                        <p class="formulario_campo-descricao">Ativar sons ambiente</p>
+                    </fieldset>
+                    <fieldset class="configuracao_formulario-campo ativar-pause">
+                        <input class="pause checkbox-style" type="checkbox">
+                        <p class="formulario_campo-descricao">Permitir pause</p>
+                    </fieldset>
+                </form> 
+                <button class="timer_iniciar" data-botao="iniciar">Iniciar</button>
+
+            </div>
+            <div class="timers">
+                <div class="timer-atividade_container timer-ativo_container" data-timer="atividade">
+                    <h2 class="timer"><span data-minuto="atividade">00</span>:<span data-segundo="atividade">03</span></h2>
+                    <p class="timer_descricao" data-atividade-atual>atividade</p>
+                    <p class="timer_mensagem" data-mensagem></p>
+                </div>
+                <div class="timer-descanso_container timer-ativo_container" data-timer="descanso">
+                    <h2 class="timer"><span data-minuto="descanso">00</span>:<span data-segundo="descanso">03</span></h2>
+                    <p class="timer_descricao">Descanso</p>
+                    <p class="timer_mensagem" data-mensagem>Descanse, tome um café, respire, relaxe! Deixe sua mente processar o que aprendeu.</p>
+                </div>
+                <div class="timer-longo-descanso_container timer-ativo_container" data-timer="descanso-longo">
+                    <h2 class="timer"><span data-minuto="descanso-longo">00</span>:<span data-segundo="descanso-longo">03</span></h2>
+                    <p class="timer_descricao">Longo descanso</p>
+                    <p class="timer_mensagem" data-mensagem></p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="pomodoro-descricao_container">
+        <h2 class="pomodoro-descricao_titulo">A técnica Pomodoro</h2>
+        <div class="pomodoro-descricao">
+            <h3 class="pomodoro-descricao_subtitulo">O que é a técnica Pomodoro?</h3>
+            <p class="pomodoro-descricao_texto">A técnica pomodoro é uma tecnica de gerenciamento de tempo, se utilizando de periodos de 25 minutos, separados por pequenos intervalos.</p>
+        </div>
+        <div class="pomodoro-descricao">
+            <h3 class="pomodoro-descricao_subtitulo">Qual as vantagens do Pomodoro?</h3>
+            <p class="pomodoro-descricao_texto">A técnica pomodoro foi muito utilizada, e os usuários dessa técnica relataram sentir alívio de estresse, ansiedade, aumento de foco e determinação.</p>
+        </div>
+    </section>
+    <section class="pomodoro-descricao_dicas">
+        <h3 class="dicas_titulo">Como usar Pomodoro de forma eficiente:</h3>
+        <div class="dicas_container">
+            <div class="dica descanso dica-esquerda">
+                <h4 class="dica_titulo">Descanso</h4>
+                <p class="dica_descricao">Durante a pausa para o descanso, evite fazer tarefas complexas, deixe sua mente relaxar com uma xícara de café enquanto sua mente organiza o que aprendeu.</p>
+            </div>
+            <div class="dica interrupcoes">
+                <h4 class="dica_titulo">Interrupções</h4>
+                <p class="dica_descricao">Lembre-se sempre de anotar as interrupções, seja ela por motivos internos ou externos, por alguém ou por algo. Assim poderá medir quais situações são realmente necessárias de interrupção, além de descobrir seus motivos de desconcentração.</p>
+            </div>
+            <div class="dica ferramentas dica-esquerda">
+                <h4 class="dica_titulo">Ferramentas</h4>
+                <p class="dica_descricao">Usar um cronometro para gerenciar o seu tempo pode ser bem útil, porém usar um cronometro focado na técnica pomodoro é melhor ainda, não se esqueça em usa-lo.</p>
+            </div>
+            <div class="dica tecnicas">
+                <h4 class="dica_titulo">Técnicas</h4>
+                <p class="dica_descricao">Existem outras técnicas para estudos que, combinando ao Pomodoro, podem lhe proporcionar sessões de estudos mais eficientes. Alguns metodos são o estudo mnemônico, mapas mentais, estudos intercalados e método Robinson.</p>
+            </div>
+            <div class="dica ambiente dica-esquerda">
+                <h4 class="dica_titulo">Ambiente</h4>
+                <p class="dica_descricao">Além dos métodos de estudo, lembre-se que o ambiente é muito importante. Prefira sempre o local mais silencioso, sem distrações, organizado e limpo, isso irá aumentar o seu foco.</p>
+            </div>
+            <div class="dica saude">
+                <h4 class="dica_titulo">Saúde</h4>
+                <p class="dica_descricao">Mantenha o seu corpo saudável, pois a saúde mental e física são igualmente importantes. Mantenha hábitos alimentares saudáveis, pratique exercícios, dedique parte do seu tempo ao lazer e durma ao menos oito horas ao dia.</p>
+            </div>
+        </div>
+    </section>
+    <script src="js/configuracao.js" type="module"></script>
+</body>
+</html>

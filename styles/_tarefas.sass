@@ -1,0 +1,66 @@
+.tarefas_container
+    display: none
+    grid-area: tarefas
+    background: var(--cor-fundo-tarefas)
+    border-right: 2px solid var(--cor-borda)
+    padding: 1rem
+    color: var(--cor-fundo-timer)
+
+    .tarefas_titulo
+        font-size: 32px
+        text-align: center
+        font-weight: 600
+        padding-bottom: 1rem
+        border-bottom: 2px var(--cor-borda) solid
+    
+    .tarefas
+        margin: 1.5rem 0
+        font-size: 16px
+        font-weight: 500
+
+        .tarefa
+            margin: .5rem 0
+            background: var(--cor-fundo-tarefas-destacado)
+            display: flex
+            justify-content: space-between
+            border-radius: 4px
+
+            p
+                display: inline
+                padding: .25rem
+            
+            button
+                border: none
+                height: 24px
+                width: 24px
+                border-radius: 0 4px 4px 0
+
+                img
+                    width: 16px
+                    height: 16px
+                    transform: translateY(1px)
+    
+    .adicionar-tarefa_campo
+        display: flex
+        justify-content: space-between
+
+        input
+            width: 100%
+            border: none
+            background: var(--cor-fundo-adicionar-tarefas-input)
+            border-radius: 4px 0 0 4px
+            padding: .25rem
+            color: var(--cor-fonte-escuro)
+        input:focus
+            outline: none
+
+        button
+            width: 26px
+            height: 24px
+            border: none
+            border-radius: 0 4px 4px 0
+
+            img
+                width: 16px
+                height: 16px
+                margin: 3px 0
