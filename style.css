@@ -1,202 +1,131 @@
-.tarefas_container {
+.timers {
+  position: relative;
   display: none;
-  grid-area: tarefas;
-  background: var(--cor-fundo-tarefas);
-  border-right: 2px solid var(--cor-borda);
-  padding: 1rem;
-  color: var(--cor-fundo-timer);
-}
-.tarefas_container .tarefas_titulo {
-  font-size: 32px;
-  text-align: center;
-  font-weight: 600;
-  padding-bottom: 1rem;
-  border-bottom: 2px var(--cor-borda) solid;
-}
-.tarefas_container .tarefas {
-  margin: 1.5rem 0;
-  font-size: 16px;
-  font-weight: 500;
-}
-.tarefas_container .tarefas .tarefa {
-  margin: 0.5rem 0;
-  background: var(--cor-fundo-tarefas-destacado);
-  display: flex;
+  flex-direction: column;
+  background: var(--cor-fundo-timer);
+  min-height: 100vh;
   justify-content: space-between;
-  border-radius: 4px;
 }
-.tarefas_container .tarefas .tarefa p {
-  display: inline;
-  padding: 0.25rem;
-}
-.tarefas_container .tarefas .tarefa button {
+.timers .botao_timer {
+  height: 32px;
+  width: 40px;
+  margin: 0.5rem 0.25rem;
   border: none;
-  height: 24px;
-  width: 24px;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0.5rem;
+  background: var(--cor-fundo-timer-destacado);
 }
-.tarefas_container .tarefas .tarefa button img {
-  width: 16px;
-  height: 16px;
+.timers .botao_timer svg {
+  width: 20px;
   transform: translateY(1px);
 }
-.tarefas_container .adicionar-tarefa_campo {
-  display: flex;
-  justify-content: space-between;
-}
-.tarefas_container .adicionar-tarefa_campo input {
-  width: 100%;
-  border: none;
-  background: var(--cor-fundo-adicionar-tarefas-input);
-  border-radius: 4px 0 0 4px;
-  padding: 0.25rem;
-  color: var(--cor-fonte-escuro);
-}
-.tarefas_container .adicionar-tarefa_campo input:focus {
-  outline: none;
-}
-.tarefas_container .adicionar-tarefa_campo button {
-  width: 26px;
-  height: 24px;
-  border: none;
-  border-radius: 0 4px 4px 0;
-}
-.tarefas_container .adicionar-tarefa_campo button img {
-  width: 16px;
-  height: 16px;
-  margin: 3px 0;
-}
-
-.timers {
-  margin: 0 2rem;
+.timers .botao_timer:hover {
+  background: var(--cor-fundo-timer-destacado);
+  cursor: pointer;
 }
 .timers .timer-ativo_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
   flex-direction: column;
-  display: none;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  gap: 1rem;
+  padding: 2rem;
 }
 .timers .timer-ativo_container .timer {
-  color: var(--cor-fundo-tarefas);
+  background: var(--cor-fundo-timer-destacado);
   font-size: 64px;
   font-weight: 700;
-  margin: 1rem auto;
-  background: var(--cor-fundo-timer-destacado);
-  padding: 1rem;
-  border-radius: 0.75rem;
-  min-width: 15rem;
+  color: var(--cor-fonte-claro);
+  padding: 0.25rem 0.5rem;
+  min-width: 14rem;
+  border-radius: 1rem;
   text-align: center;
 }
 .timers .timer-ativo_container .timer_descricao {
-  font-size: 24px;
+  font-size: 32px;
+  font-weight: 500;
   color: var(--cor-fonte-claro);
-  font-weight: 600;
 }
-.timers .timer-ativo_container .timer_mensagem {
-  font-weight: 600;
-  color: var(--cor-fonte-claro);
-  margin: 2rem 0.5rem;
-  max-width: 32rem;
-  text-align: center;
+.timers .timer_mensagem {
   color: var(--cor-fonte-medio);
+  font-weight: 400;
+  margin: 4rem;
+  text-align: center;
 }
 
 .timers_configuracao {
-  color: var(--cor-fundo-tarefas);
-  text-align: center;
-  max-width: 60rem;
-  margin: 0 auto;
-}
-.timers_configuracao .timer_iniciar {
-  margin: 2rem auto;
-  border: none;
-  font-size: 24px;
-  font-weight: 600;
-  background: var(--cor-fundo-timer-destacado);
-  padding: 0.5rem 2rem;
-  border-radius: 999px;
-  color: var(--cor-fonte-claro);
-}
-.timers_configuracao .timer_iniciar:hover {
-  cursor: pointer;
-  background: var(--cor-fundo-timer-botao);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--cor-fundo-timer);
+  height: 100vh;
 }
 .timers_configuracao .configuracao_formulario {
   display: grid;
-  grid-template-areas: "nome temas" "tempo-atividade ativar-descanso-auto" "tempo-descanso sons" "tempo-descanso-longo pause";
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 5rem;
+  grid-template-areas: "nome nome nome temas temas temas" "tempo-atividade tempo-atividade tempo-descanso tempo-descanso tempo-descanso-longo tempo-descanso-longo";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 8rem 8rem;
+  text-align: center;
   align-items: center;
 }
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo {
-  margin: 1rem 0;
-}
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .tempo_formulario {
+.timers_configuracao .configuracao_formulario .nome-atividade input {
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  background: var(--cor-fundo-timer-destacado);
-  color: var(--cor-fonte-claro);
-  max-width: 8rem;
-  margin: 0 auto;
-}
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .tempo_formulario .minutos, .timers_configuracao .configuracao_formulario .configuracao_formulario-campo .tempo_formulario .segundos {
-  border: none;
-  background: var(--cor-fundo-timer-destacado);
-  color: var(--cor-fonte-claro);
+  border-radius: 0.5rem;
   font-size: 24px;
+  padding: 0.25rem 0.5rem;
   font-weight: 600;
-  width: 3rem;
   text-align: center;
+  background: var(--cor-fundo-timer-destacado);
+  color: var(--cor-fonte-claro);
 }
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .tempo_formulario .minutos:focus, .timers_configuracao .configuracao_formulario .configuracao_formulario-campo .tempo_formulario .segundos:focus {
+.timers_configuracao .configuracao_formulario .nome-atividade input:focus {
   outline: none;
 }
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .tempo_formulario p {
-  display: inline;
-  text-align: center;
-}
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .temas-opcoes {
+.timers_configuracao .configuracao_formulario .tempo_formulario {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin: 0.5rem;
+  font-size: 32px;
+  background: var(--cor-fundo-timer-destacado);
+  max-width: 10rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  color: var(--cor-fonte-claro);
 }
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .temas-opcoes .tema-opcao {
+.timers_configuracao .configuracao_formulario .tempo_formulario .minutos, .timers_configuracao .configuracao_formulario .tempo_formulario .segundos {
+  font-size: 32px;
+  max-width: 4rem;
+  border: none;
+  background: var(--cor-fundo-timer-destacado);
+  text-align: center;
+  color: var(--cor-fonte-claro);
+}
+.timers_configuracao .configuracao_formulario .tempo_formulario .minutos:focus, .timers_configuracao .configuracao_formulario .tempo_formulario .segundos:focus {
+  outline: none;
+}
+.timers_configuracao .configuracao_formulario .temas-opcoes {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 1rem;
+}
+.timers_configuracao .configuracao_formulario .temas-opcoes .tema-opcao {
+  width: 32px;
+  height: 32px;
   background: var(--cor-fundo-timer-destacado);
   border-radius: 100%;
 }
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .checkbox-style {
-  width: 20px;
-  height: 20px;
-  -webkit-appearance: none;
-  border: 2px solid var(--cor-borda);
-  border-radius: 4px;
-  transform: translateY(4px);
-}
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .checkbox-style:checked {
-  background: var(--cor-borda);
-}
-.timers_configuracao .configuracao_formulario .configuracao_formulario-campo .checkbox-style:hover {
-  cursor: pointer;
-}
 .timers_configuracao .configuracao_formulario .formulario_campo-descricao {
-  font-size: 20px;
-  display: inline;
-  font-weight: 500;
+  color: var(--cor-fonte-medio);
+  margin: 0.5rem 0;
 }
-.timers_configuracao .configuracao_formulario .nome-atividade input {
-  display: block;
-  width: 100%;
-  height: 32px;
-  background: var(--cor-fundo-timer-destacado);
-  border: none;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--cor-fonte-claro);
+.timers_configuracao .configuracao_formulario .nome-atividade {
+  grid-area: nome;
+}
+.timers_configuracao .configuracao_formulario .temas {
+  grid-area: temas;
 }
 .timers_configuracao .configuracao_formulario .tempo_atividade {
   grid-area: tempo-atividade;
@@ -207,20 +136,18 @@
 .timers_configuracao .configuracao_formulario .tempo_descanso-longo {
   grid-area: tempo-descanso-longo;
 }
-.timers_configuracao .configuracao_formulario .nome-atividade {
-  grid-area: nome;
+.timers_configuracao .botao-iniciar_container .timer_iniciar {
+  margin: 2rem 0;
+  font-size: 32px;
+  border: none;
+  padding: 0.25rem 1rem;
+  background: var(--cor-fundo-timer-botao);
+  color: var(--cor-fonte-claro);
+  border-radius: 1rem;
 }
-.timers_configuracao .configuracao_formulario .temas {
-  grid-area: temas;
-}
-.timers_configuracao .configuracao_formulario .ativar-descanso-auto {
-  grid-area: ativar-descanso-auto;
-}
-.timers_configuracao .configuracao_formulario .ativar-sons {
-  grid-area: sons;
-}
-.timers_configuracao .configuracao_formulario .ativar-pause {
-  grid-area: pause;
+.timers_configuracao .botao-iniciar_container .timer_iniciar:hover {
+  background: var(--cor-fundo-timer-destacado);
+  cursor: pointer;
 }
 
 .pomodoro-descricao_container {
@@ -275,9 +202,6 @@
   --cor-fonte-claro: #E9F8F9;
   --cor-fonte-medio: #DBDFEA;
   --cor-fonte-escuro: #181823;
-  --cor-fundo-tarefas: #FDFDBD;
-  --cor-fundo-tarefas-destacado: #C8FFD4;
-  --cor-fundo-adicionar-tarefas-input: #F8C4B4;
   --cor-fundo-timer: #8EA7E9;
   --cor-fundo-timer-destacado: #7286D3;
   --cor-fundo-timer-botao: #146C94;
@@ -293,4 +217,8 @@ body {
   background: var(--cor-fundo-timer);
   min-height: 100vh;
   border-bottom: 2px solid var(--cor-borda);
+}
+
+input, button {
+  font-family: var(--fonte-principal);
 }/*# sourceMappingURL=style.css.map */

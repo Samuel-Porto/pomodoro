@@ -2,6 +2,7 @@ const configuracoesContainer = document.querySelector('[data-configuracoes]');
 
 const nomeAtividade = document.querySelector('[data-nome="atividade"]');
 const atividadeAtual = document.querySelector('[data-atividade-atual]');
+const timerContainer = document.querySelector('[data-timer-container]');
 const timers = document.querySelectorAll('[data-timer]');
 const mensagemLista = document.querySelectorAll('[data-mensagem]');
 
@@ -13,7 +14,7 @@ const mensagens = {
     atividade: {
         0: 'Coloque o seu celular no silencioso. Evitando distrações, você consegue se concentrar melhor.',
         1: 'Revisar a sua matéria ajuda muito a reter o conteúdo aprendido. Revise ao menos 5 minutos por dia o que aprendeu por uma semana e você com certeza verá a diferença!',
-        2: 'Estudar com materiais impressos podem ser mais vantajosos do que a tela do computador, pois ajuda na compreensão do conteúdo.',
+        2: 'Estudar com materiais impressos podem ser mais vantajosos do que a tela do computador, pois colaboram com a compreensão do conteúdo.',
         3: 'Ao relacionar os seus estudos com a sua vida real, você deixará mais facil a compreensão de conceitos ao qual estudou, pois estará buscando referências reais para conceitos abstratos',
         4: 'Quando não conseguir dormir, revise as atividades ao qual estudou, você poderá reter o que aprendeu ou sentir sono mais rápido!',
         5: 'Varie o seu conteúdo, concentrar em apenas uma area de estudos não é tão pratico quanto parece. Porém é aconselhado que estude temas correlacionados (como lingua estrangeira e leitura da mesma ou matemática e física)'
@@ -29,9 +30,10 @@ const mensagens = {
 }
 
 export function trocarPomodoro() {
-    configuracoesContainer.style.display = "none";
+    configuracoesContainer.style.display = 'none';
+    timerContainer.style.display = 'flex'
     timers.forEach(timer => {
-        timer.style.display = "none";
+        timer.style.display = 'none';
 
         if (timer.dataset.timer == sessao[0]) {
             timer.style.display = "flex";

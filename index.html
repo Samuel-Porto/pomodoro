@@ -12,110 +12,76 @@
     <title>Pomodoro timer</title>
 </head>
 <body>
-    <section class="pomodoro_container">
-        <section class="tarefas_container">
-            <h3 class="tarefas_titulo">Tarefas</h3>
-            <div class="tarefas">
-                <div class="tarefa">
-                    <p>Html</p>
-                    <button class="tarefa_ver-mais"><img src="img/down_button.svg" alt="Ver mais"></button>
+    <section class="timers_configuracao" data-configuracoes>
+        <form class="configuracao_formulario">
+            <fieldset class="nome-atividade">
+                <input type="text" value="Atividade" data-nome="atividade">
+                <p class="formulario_campo-descricao">Nome da atividade</p>
+            </fieldset>
+            <fieldset class="temas">
+                <div class="temas-opcoes">
+                    <div class="tema-opcao">
+                        <canvas width="32" height="32"></canvas>
+                    </div>
+                    <div class="tema-opcao">
+                        <canvas width="32" height="32"></canvas>
+                    </div>
+                    <div class="tema-opcao">
+                        <canvas width="32" height="32"></canvas>
+                    </div>
+                    <div class="tema-opcao">
+                        <canvas width="32" height="32"></canvas>
+                    </div>
                 </div>
-                <div class="tarefa">
-                    <p>Css</p>
-                    <button class="tarefa_ver-mais"><img src="img/down_button.svg" alt="Ver mais"></button>
+                <p class="formulario_campo-descricao">Temas</p>
+            </fieldset>
+            <fieldset class="tempo_atividade">
+                <div class="tempo_formulario">
+                    <input class="minutos" type="text" placeholder="mm" maxlength="2" value="25" data-input="atividade-minuto">
+                    <p>:</p>
+                    <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="atividade-segundo">
                 </div>
-                <div class="tarefa">
-                    <p>JavaScript</p>
-                    <button class="tarefa_ver-mais"><img src="img/down_button.svg" alt="Ver mais"></button>
+                <p class="formulario_campo-descricao">Atividade</p>
+            </fieldset>
+            <fieldset class="tempo_descanso">
+                <div class="tempo_formulario">
+                    <input class="minutos" type="text" placeholder="mm" maxlength="2" value="05" data-input="descanso-minuto">
+                    <p>:</p>
+                    <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="descanso-segundo">
                 </div>
-            </div>
-            <div class="adicionar-tarefa_campo">
-                <input type="text" class="nova-tarefa_nome">
-                <button class="nova-tarefa_botao"><img src="img/add_button.svg" alt="adicionar"></button>
-            </div>
-        </section>
-        <section class="timers_container">
-            <div class="timers_configuracao" data-configuracoes>
-                <form class="configuracao_formulario">
-                    <fieldset class="configuracao_formulario-campo nome-atividade">
-                        <input type="text" value="Atividade" data-nome="atividade">
-                        <p class="formulario_campo-descricao">Nome da atividade</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo tempo_atividade">
-                        <div class="tempo_formulario">
-                            <input class="minutos" type="text" placeholder="mm" maxlength="2" value="25" data-input="atividade-minuto">
-                            <p>:</p>
-                            <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="atividade-segundo">
-                        </div>
-                        <p class="formulario_campo-descricao">Atividade</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo tempo_descanso">
-                        <div class="tempo_formulario">
-                            <input class="minutos" type="text" placeholder="mm" maxlength="2" value="05" data-input="descanso-minuto">
-                            <p>:</p>
-                            <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="descanso-segundo">
-                        </div>
-                        <p class="formulario_campo-descricao">Descanso</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo tempo_descanso-longo">
-                        <div class="tempo_formulario">
-                            <input class="minutos" type="text" placeholder="mm" maxlength="2" value="15" data-input="descanso-longo-minuto">
-                            <p>:</p>
-                            <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="descanso-longo-segundo">
-                        </div>
-                        <p class="formulario_campo-descricao">Descanso longo</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo temas">
-                        <div class="temas-opcoes">
-                            <div class="tema-opcao">
-                                <canvas width="32" height="32"></canvas>
-                            </div>
-                            <div class="tema-opcao">
-                                <canvas width="32" height="32"></canvas>
-                            </div>
-                            <div class="tema-opcao">
-                                <canvas width="32" height="32"></canvas>
-                            </div>
-                            <div class="tema-opcao">
-                                <canvas width="32" height="32"></canvas>
-                            </div>
-                        </div>
-                        <p class="formulario_campo-descricao">Temas</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo ativar-descanso-auto">
-                        <input class="auto-descanso checkbox-style" type="checkbox">
-                        <p class="formulario_campo-descricao">Ativar descanso automaticamente</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo ativar-sons">
-                        <input class="sons checkbox-style" type="checkbox">
-                        <p class="formulario_campo-descricao">Ativar sons ambiente</p>
-                    </fieldset>
-                    <fieldset class="configuracao_formulario-campo ativar-pause">
-                        <input class="pause checkbox-style" type="checkbox">
-                        <p class="formulario_campo-descricao">Permitir pause</p>
-                    </fieldset>
-                </form> 
-                <button class="timer_iniciar" data-botao="iniciar">Iniciar</button>
-
-            </div>
-            <div class="timers">
-                <div class="timer-atividade_container timer-ativo_container" data-timer="atividade">
-                    <h2 class="timer"><span data-minuto="atividade">00</span>:<span data-segundo="atividade">03</span></h2>
-                    <p class="timer_descricao" data-atividade-atual>atividade</p>
-                    <p class="timer_mensagem" data-mensagem></p>
+                <p class="formulario_campo-descricao">Descanso</p>
+            </fieldset>
+            <fieldset class="tempo_descanso-longo">
+                <div class="tempo_formulario">
+                    <input class="minutos" type="text" placeholder="mm" maxlength="2" value="15" data-input="descanso-longo-minuto">
+                    <p>:</p>
+                    <input class="segundos" type="text" placeholder="ss" maxlength="2" value="00" data-input="descanso-longo-segundo">
                 </div>
-                <div class="timer-descanso_container timer-ativo_container" data-timer="descanso">
-                    <h2 class="timer"><span data-minuto="descanso">00</span>:<span data-segundo="descanso">03</span></h2>
-                    <p class="timer_descricao">Descanso</p>
-                    <p class="timer_mensagem" data-mensagem>Descanse, tome um café, respire, relaxe! Deixe sua mente processar o que aprendeu.</p>
-                </div>
-                <div class="timer-longo-descanso_container timer-ativo_container" data-timer="descanso-longo">
-                    <h2 class="timer"><span data-minuto="descanso-longo">00</span>:<span data-segundo="descanso-longo">03</span></h2>
-                    <p class="timer_descricao">Longo descanso</p>
-                    <p class="timer_mensagem" data-mensagem></p>
-                </div>
-            </div>
-        </section>
+                <p class="formulario_campo-descricao">Descanso longo</p>
+            </fieldset>
+        </form> 
+        <div class="botao-iniciar_container">
+            <button class="timer_iniciar" data-botao="iniciar" type="button">Iniciar</button>
+        </div>
+    </section>
+    <section class="timers" data-timer-container>
+        <div class="timers_opcoes">
+            <button class="botao_musica botao_timer" type="button"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 17.5V6L20 3V16.5M9 17.5C9 18.8807 7.88071 20 6.5 20C5.11929 20 4 18.8807 4 17.5C4 16.1193 5.11929 15 6.5 15C7.88071 15 9 16.1193 9 17.5ZM20 16.5C20 17.8807 18.8807 19 17.5 19C16.1193 19 15 17.8807 15 16.5C15 15.1193 16.1193 14 17.5 14C18.8807 14 20 15.1193 20 16.5Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+            <button class="botao_automatico botao_timer" type="button"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 19V5L11 12L2 19Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13 19V5L22 12L13 19Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+        </div>
+        <div class="timer-atividade_container timer-ativo_container" data-timer="atividade">
+            <h2 class="timer"><span data-minuto="atividade">00</span>:<span data-segundo="atividade">03</span></h2>
+            <p class="timer_descricao" data-atividade-atual>atividade</p>
+        </div>
+        <div class="timer-descanso_container timer-ativo_container" data-timer="descanso">
+            <h2 class="timer"><span data-minuto="descanso">00</span>:<span data-segundo="descanso">03</span></h2>
+            <p class="timer_descricao">Descanso</p>
+        </div>
+        <div class="timer-longo-descanso_container timer-ativo_container" data-timer="descanso-longo">
+            <h2 class="timer"><span data-minuto="descanso-longo">00</span>:<span data-segundo="descanso-longo">03</span></h2>
+            <p class="timer_descricao">Longo descanso</p>
+        </div>
+        <p class="timer_mensagem" data-mensagem>Descanse, tome um café, respire, relaxe! Deixe sua mente processar o que aprendeu.</p>
     </section>
     <section class="pomodoro-descricao_container">
         <h2 class="pomodoro-descricao_titulo">A técnica Pomodoro</h2>

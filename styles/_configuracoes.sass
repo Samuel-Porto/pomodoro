@@ -1,106 +1,89 @@
 .timers_configuracao
-    color: var(--cor-fundo-tarefas)
-    text-align: center
-    max-width: 60rem
-    margin: 0 auto
-
-    .timer_iniciar
-        margin: 2rem auto
-        border: none
-        font-size: 24px
-        font-weight: 600
-        background: var(--cor-fundo-timer-destacado)
-        padding: .5rem 2rem
-        border-radius: 999px
-        color: var(--cor-fonte-claro)
-    .timer_iniciar:hover
-        cursor: pointer
-        background: var(--cor-fundo-timer-botao)
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    background: var(--cor-fundo-timer)
+    height: 100vh
 
     .configuracao_formulario
         display: grid
-        grid-template-areas: "nome temas" "tempo-atividade ativar-descanso-auto" "tempo-descanso sons"  "tempo-descanso-longo pause"
-        grid-template-columns: 1fr 1fr
-        gap: 1rem 5rem
+        grid-template-areas: "nome nome nome temas temas temas" "tempo-atividade tempo-atividade tempo-descanso tempo-descanso tempo-descanso-longo tempo-descanso-longo"
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+        grid-template-rows: 8rem 8rem
+
+        text-align: center
         align-items: center
 
-        .configuracao_formulario-campo
-            margin: 1rem 0
-
-            .tempo_formulario
-                border: none
-                padding: .5rem 1rem
-                border-radius: 8px
-                background: var(--cor-fundo-timer-destacado)
-                color: var(--cor-fonte-claro)
-                max-width: 8rem
-                margin: 0 auto
-                .minutos, .segundos
-                    border: none
-                    background: var(--cor-fundo-timer-destacado)
-                    color: var(--cor-fonte-claro)
-                    font-size: 24px
-                    font-weight: 600
-                    width: 3rem
-                    text-align: center
-                    
-                .minutos:focus, .segundos:focus
-                    outline: none
-                p
-                    display: inline
-                    text-align: center
-            
-            .temas-opcoes
-                display: flex
-                justify-content: center
-                gap: 1rem
-                margin: .5rem
-                .tema-opcao
-                    background: var(--cor-fundo-timer-destacado)
-                    border-radius: 100%
-
-            .checkbox-style
-                width: 20px
-                height: 20px
-                -webkit-appearance: none
-                border: 2px solid var(--cor-borda)
-                border-radius: 4px
-                transform: translateY(4px)
-            .checkbox-style:checked
-                background: var(--cor-borda)
-            .checkbox-style:hover
-                cursor: pointer
-        
-        .formulario_campo-descricao
-            font-size: 20px
-            display: inline
-            font-weight: 500
-        
         .nome-atividade input
-            display: block
-            width: 100%
-            height: 32px
-            background: var(--cor-fundo-timer-destacado)
             border: none
-            border-radius: 8px
-            text-align: center
-            font-size: 20px
+            border-radius: .5rem
+            font-size: 24px
+            padding: .25rem .5rem
             font-weight: 600
+            text-align: center
+            background: var(--cor-fundo-timer-destacado)
+            color: var(--cor-fonte-claro)
+        .nome-atividade input:focus
+            outline: none
+
+        .tempo_formulario
+            display: flex
+            justify-content: center
+            font-size: 32px
+            background: var(--cor-fundo-timer-destacado)
+            max-width: 10rem
+            margin: 0 auto
+            border-radius: .5rem
             color: var(--cor-fonte-claro)
 
+            .minutos, .segundos
+                font-size: 32px
+                max-width: 4rem
+                border: none
+                background: var(--cor-fundo-timer-destacado)
+                text-align: center
+                color: var(--cor-fonte-claro)
+                
+            .minutos:focus, .segundos:focus
+                outline: none
+        
+        .temas-opcoes
+            display: flex
+            gap: 2rem
+            justify-content: center
+            margin: 1rem 
+            
+            .tema-opcao
+                width: 32px
+                height: 32px
+                background: var(--cor-fundo-timer-destacado)
+                border-radius: 100%
+        
+        .formulario_campo-descricao
+            color: var(--cor-fonte-medio)
+            margin: .5rem 0
+
+        .nome-atividade
+            grid-area: nome
+        .temas
+            grid-area: temas
         .tempo_atividade
             grid-area: tempo-atividade
         .tempo_descanso
             grid-area: tempo-descanso
         .tempo_descanso-longo
             grid-area: tempo-descanso-longo
-        .nome-atividade
-            grid-area: nome
-        .temas
-            grid-area: temas
-        .ativar-descanso-auto
-            grid-area: ativar-descanso-auto
-        .ativar-sons
-            grid-area: sons
-        .ativar-pause
-            grid-area: pause
+    .botao-iniciar_container
+        .timer_iniciar
+            margin: 2rem 0
+            font-size: 32px
+            border: none
+            padding: .25rem 1rem
+            background: var(--cor-fundo-timer-botao)
+            color: var(--cor-fonte-claro)
+            border-radius: 1rem
+            
+        .timer_iniciar:hover
+            background: var(--cor-fundo-timer-destacado)
+            cursor: pointer

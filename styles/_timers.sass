@@ -1,33 +1,57 @@
 .timers
-    margin: 0 2rem
+    position: relative
+    display: none
+    flex-direction: column
+    background: var(--cor-fundo-timer)
+    min-height: 100vh
+    justify-content: space-between
+
+    .botao_timer
+        height: 32px
+        width: 40px
+        margin: .5rem .25rem
+        border: none
+        border-radius: .5rem
+        background: var(--cor-fundo-timer-destacado)
+        svg
+            width: 20px
+            transform: translateY(1px)
+
+    .botao_timer:hover
+        background: var(--cor-fundo-timer-destacado)
+        cursor: pointer
+        
+
     .timer-ativo_container
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        display: flex
         flex-direction: column
-        display: none
         align-items: center
-        justify-content: center
-        height: 100vh
+        gap: 1rem
+        padding: 2rem
 
         .timer
-            color: var(--cor-fundo-tarefas)
+            background: var(--cor-fundo-timer-destacado)
             font-size: 64px
             font-weight: 700
-            margin: 1rem auto
-            background: var(--cor-fundo-timer-destacado)
-            padding: 1rem
-            border-radius: .75rem
-            min-width: 15rem
+            color: var(--cor-fonte-claro)
+            padding: .25rem .5rem
+            min-width: 14rem
+            border-radius: 1rem
             text-align: center
         
         .timer_descricao
-            font-size: 24px
+            font-size: 32px
+            font-weight: 500
             color: var(--cor-fonte-claro)
-            font-weight: 600
         
-        .timer_mensagem
-            font-weight: 600
-            color: var(--cor-fonte-claro)
-            margin: 2rem .5rem
-            max-width: 32rem
-            text-align: center
-            color: var(--cor-fonte-medio)
+    .timer_mensagem
+        color: var(--cor-fonte-medio)
+        font-weight: 400
+        margin: 4rem
+        text-align: center
+            
 
