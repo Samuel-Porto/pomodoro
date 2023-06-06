@@ -7,10 +7,6 @@
     height: 100vh
 
     .configuracao_formulario
-        display: grid
-        grid-template-areas: "nome nome nome temas temas temas" "tempo-atividade tempo-atividade tempo-descanso tempo-descanso tempo-descanso-longo tempo-descanso-longo"
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
-        grid-template-rows: 8rem 8rem
 
         text-align: center
         align-items: center
@@ -87,3 +83,14 @@
         .timer_iniciar:hover
             background: var(--cor-fundo-timer-destacado)
             cursor: pointer
+
+@media (orientation: portrait)
+    .configuracao_formulario
+        display: block
+        margin-top: 1rem
+@media (orientation: landscape)
+    .configuracao_formulario
+        display: grid
+        grid-template-areas: "nome nome nome temas temas temas" "tempo-atividade tempo-atividade tempo-descanso tempo-descanso tempo-descanso-longo tempo-descanso-longo"
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+        grid-template-rows: 8rem 8rem

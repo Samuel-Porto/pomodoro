@@ -24,8 +24,6 @@
         text-align: center
 
     .dicas_container
-        display: grid
-        grid-template-areas: "descanco interrupcoes" "ferramentas tecnicas" "ambiente saude"
         text-align: center
         padding: 2rem 0
         border-bottom: 2px solid var(--cor-borda)
@@ -38,7 +36,12 @@
         
         .dica_descricao
             padding: 0 4rem
-        .dica-esquerda
-            border-right: 2px solid var(--cor-borda)
         
-            
+@media (max-width: 720px)
+    .dicas_container
+        display: block
+
+@media (min-width: 720px)
+    .dicas_container
+        display: grid
+        grid-template-areas: "descanco interrupcoes" "ferramentas tecnicas" "ambiente saude"
