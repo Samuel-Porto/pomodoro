@@ -23,7 +23,7 @@ const mensagens = {
         0: 'Que tal se exercitar? faça um alongamento ou uma atividade física. Estudar é importante, porém a sua saúde também!',
         1: 'Dê preferências a comidas leves, comidas pesadas e gordurosas podem atrapalhar seu ritmo de estudos!',
         2: 'O metodo pomodoro visa não sobrecarregar o cérebro. Acredite, passar horas e horas estudando pode ser pouco produtivo!',
-        3: 'Ao revisar um conteúdo, escolha lembrar do conteúdo ao invés de reler o conteúdo, a "recordação ativa" diz que recitar o conteúdo aprendido pode ajudar na memorização a longo prazo.',
+        3: 'Ao revisar um conteúdo, escolha lembrar o que acabou de aprender ao invés de reler o mesmo, a "recordação ativa" diz que recitar o conteúdo aprendido pode ajudar na memorização a longo prazo.',
         4: 'Aproveite este tempinho para mudar de cenário, uma mudança de cenário pode ajudar bastante nas suas habilidades de aprendizado!',
         5: 'Organize seus materiais, não gaste seu tempo de estudos procurando seu livro ou seu lápis preferido por 5 minutos!'
     }

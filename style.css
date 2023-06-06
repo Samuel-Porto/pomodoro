@@ -47,6 +47,7 @@
   font-size: 32px;
   font-weight: 500;
   color: var(--cor-fonte-claro);
+  text-align: center;
 }
 .timers .timer_mensagem {
   color: var(--cor-fonte-medio);
