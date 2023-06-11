@@ -6,21 +6,31 @@
   min-height: 100vh;
   justify-content: space-between;
 }
-.timers .botao_timer {
-  height: 32px;
-  width: 40px;
-  margin: 0.5rem 0.25rem;
-  border: none;
+.timers .timers_opcoes {
+  margin: 1rem;
+  display: flex;
+}
+.timers .timers_opcoes .sons_dropdown {
+  background: var(--cor-fundo-timer-destacado);
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
-  background: var(--cor-fundo-timer-destacado);
+  color: var(--cor-fonte-claro);
 }
-.timers .botao_timer svg {
-  width: 20px;
-  transform: translateY(1px);
+.timers .timers_opcoes .sons_dropdown:hover #sons {
+  display: block;
 }
-.timers .botao_timer:hover {
-  background: var(--cor-fundo-timer-destacado);
-  cursor: pointer;
+.timers .timers_opcoes #sons {
+  display: none;
+  border: none;
+  background: none;
+  width: 10rem;
+  height: auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cor-fonte-claro);
 }
 .timers .timer-ativo_container {
   position: absolute;

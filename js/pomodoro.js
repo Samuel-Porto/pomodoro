@@ -5,8 +5,11 @@ const atividadeAtual = document.querySelector('[data-atividade-atual]');
 const timerContainer = document.querySelector('[data-timer-container]');
 const timers = document.querySelectorAll('[data-timer]');
 const mensagemLista = document.querySelectorAll('[data-mensagem]');
+const botaoMusica = document.getElementById('sons');
 
 var sessao = ['atividade', 'descanso'];
+var audioAmbiente = new Audio;
+audioAmbiente.loop = true;
 
 let descansoLongo = 4;
 
@@ -24,12 +27,14 @@ const mensagens = {
         1: 'Dê preferências a comidas leves, comidas pesadas e gordurosas podem atrapalhar seu ritmo de estudos!',
         2: 'O metodo pomodoro visa não sobrecarregar o cérebro. Acredite, passar horas e horas estudando pode ser pouco produtivo!',
         3: 'Ao revisar um conteúdo, escolha lembrar o que acabou de aprender ao invés de reler o mesmo, a "recordação ativa" diz que recitar o conteúdo aprendido pode ajudar na memorização a longo prazo.',
-        4: 'Aproveite este tempinho para mudar de cenário, uma mudança de cenário pode ajudar bastante nas suas habilidades de aprendizado!',
+        4: 'Aproveite este tempinho para mudar de cenário, uma mudança de ambiente pode ajudar bastante nas suas habilidades de aprendizado!',
         5: 'Organize seus materiais, não gaste seu tempo de estudos procurando seu livro ou seu lápis preferido por 5 minutos!'
     }
 }
 
 export function trocarPomodoro() {
+    var audioPomodoro = new Audio('../sounds/pomodoro.mp3');
+    audioPomodoro.play();
     configuracoesContainer.style.display = 'none';
     timerContainer.style.display = 'flex'
     timers.forEach(timer => {
@@ -94,4 +99,18 @@ function iniciarTimer() {
     var segundos = document.querySelector(`[data-segundo="${sessao[0]}"]`);
 
     timer(minutos, segundos);
+}
+
+botaoMusica.addEventListener('click', () => {
+    tocaMusica(botaoMusica);
+});
+
+function tocaMusica(campo) {
+    var som = campo.value;
+    audioAmbiente.pause();
+    audioAmbiente.currentTime = 0;
+    if (som != 'silencio') {
+        audioAmbiente = new Audio(`../sounds/${som}-ambiente.mp3`);
+        audioAmbiente.play();   
+    }
 }
