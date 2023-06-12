@@ -6,6 +6,7 @@ const botaoHome = document.querySelector('[data-botao-home]');
 const botaoMusica = document.getElementById('sons');
 const timers = document.querySelectorAll('[data-timer]');
 const mensagemLista = document.querySelectorAll('[data-mensagem]');
+const audioPomodoro = new Audio('../sounds/pomodoro.mp3');
 
 var sessao;
 var audioAmbiente = new Audio;
@@ -53,10 +54,9 @@ export function trocarPomodoro(iniciar = false) {
             tempoDeAtividade = localStorage.getItem(atividadeChave);
         }
     }
-
-
-    var audioPomodoro = new Audio('../sounds/pomodoro.mp3');
+    
     audioPomodoro.play();
+
     configuracoesContainer.style.display = 'none';
     timerContainer.style.display = 'flex'
     timers.forEach(timer => {
