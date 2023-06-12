@@ -9,28 +9,32 @@
     .timers_opcoes
         margin: 1rem
         display: flex
-
-        .sons_dropdown
-            background: var(--cor-fundo-timer-destacado)
-            font-size: 24px
-            font-weight: 600
-            padding: .25rem .5rem
-            border-radius: .5rem
-            color: var(--cor-fonte-claro)
-
-        .sons_dropdown:hover #sons
-            display: block
+        justify-content: space-between
 
         #sons
-            display: none
+            display: block
             border: none
-            background: none
+            background: var(--cor-fundo-timer-destacado)
             width: 10rem
             height: auto
             text-align: center
             font-size: 16px
             font-weight: 500
             color: var(--cor-fonte-claro)
+            padding: .25rem .5rem
+            border-radius: .5rem
+        .home
+            background: var(--cor-fundo-timer-destacado)
+            border: none
+            border-radius: .5rem
+            height: 32px
+            width: 32px
+            img
+                height: 24px
+                width: 24px
+        #sons:hover, .home:hover
+            cursor: pointer
+            background: var(--cor-fundo-timer-botao)
 
     .timer-ativo_container
         position: absolute

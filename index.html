@@ -66,16 +66,17 @@
     </section>
     <section class="timers" data-timer-container>
         <div class="timers_opcoes">
-            <div class="sons_dropdown">
-                <h3 class="sons_titulo">Sons</h3>
-                <select name="sons" id="sons" multiple>
-                    <option value="silencio" selected>Silêncio</option>
-                    <option value="passaros">Passaros</option>
-                    <option value="rio">Rio</option>
-                    <option value="restaurante">Restaurante</option>
-                    <option value="chuva">Chuva</option>
-                </select>
-            </div>
+            <select name="sons" id="sons">
+                <option value="silencio" selected>Silêncio</option>
+                <option value="chuva">Chuva</option>
+                <option value="rio">Rio</option>
+                <option value="floresta">Floresta</option>
+                <option value="passaros">Passaros</option>
+                <option value="criancas">Crianças</option>
+                <option value="restaurante">Restaurante</option>
+            </select>
+            
+            <button class="home" data-botao-home><img src="img/home_button.svg" alt="home"></button>
         </div>
         <div class="timer-atividade_container timer-ativo_container" data-timer="atividade">
             <h2 class="timer"><span data-minuto="atividade">00</span>:<span data-segundo="atividade">03</span></h2>

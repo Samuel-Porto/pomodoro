@@ -1,17 +1,26 @@
 const configuracoesContainer = document.querySelector('[data-configuracoes]');
-
 const nomeAtividade = document.querySelector('[data-nome="atividade"]');
 const atividadeAtual = document.querySelector('[data-atividade-atual]');
 const timerContainer = document.querySelector('[data-timer-container]');
+const botaoHome = document.querySelector('[data-botao-home]');
+const botaoMusica = document.getElementById('sons');
 const timers = document.querySelectorAll('[data-timer]');
 const mensagemLista = document.querySelectorAll('[data-mensagem]');
-const botaoMusica = document.getElementById('sons');
 
-var sessao = ['atividade', 'descanso'];
+var sessao;
 var audioAmbiente = new Audio;
-audioAmbiente.loop = true;
+var atividadeChave;
 
-let descansoLongo = 4;
+let tempoDeAtividade;
+let descansoLongo;
+
+botaoMusica.addEventListener('change', () => {
+    tocaMusica(botaoMusica.value);
+});
+
+botaoHome.addEventListener('click', () => {
+    home();
+});
 
 const mensagens = {
     atividade: {
@@ -32,7 +41,20 @@ const mensagens = {
     }
 }
 
-export function trocarPomodoro() {
+export function trocarPomodoro(iniciar = false) {
+    if (iniciar) {
+        descansoLongo = 4;
+        tempoDeAtividade = 0;
+        
+        sessao = ['atividade', 'descanso'];
+        atividadeChave = document.querySelector('[data-nome="atividade"]').value;
+
+        if (localStorage.getItem(atividadeChave) != null) {
+            tempoDeAtividade = localStorage.getItem(atividadeChave);
+        }
+    }
+
+
     var audioPomodoro = new Audio('../sounds/pomodoro.mp3');
     audioPomodoro.play();
     configuracoesContainer.style.display = 'none';
@@ -56,14 +78,14 @@ export function trocarPomodoro() {
         });
         }
     });
-    iniciarTimer();
+    atualizaTimer();
 }
 
 function timer(minutos, segundos) {
     setTimeout(function() {
         
-        if (!(minutos.innerHTML == 0 && segundos.innerHTML == 0)) {
-            iniciarTimer();
+        if (!(minutos.innerHTML == 0 && segundos.innerHTML == 0)){
+            atualizaTimer();
         } else {
             sessao.push(sessao[0]);
             sessao.shift();
@@ -82,6 +104,11 @@ function timer(minutos, segundos) {
 
         segundos.innerHTML--;
 
+        if (sessao[0] == 'atividade' && !(document.querySelector(`[data-minuto="${sessao[0]}"]`).innerHTML == document.querySelector(`[data-input="${sessao[0]}-minuto"]`).value && document.querySelector(`[data-segundo="${sessao[0]}"]`).innerHTML == document.querySelector(`[data-input="${sessao[0]}-segundo"]`).value)) {
+            tempoDeAtividade++;
+            salvaTempo();
+        }
+
         if (segundos.innerHTML < 0) {
             segundos.innerHTML = 59;
             minutos.innerHTML--;
@@ -94,23 +121,30 @@ function timer(minutos, segundos) {
     
 }
 
-function iniciarTimer() {
+function atualizaTimer() {
     var minutos = document.querySelector(`[data-minuto="${sessao[0]}"]`);
     var segundos = document.querySelector(`[data-segundo="${sessao[0]}"]`);
-
-    timer(minutos, segundos);
+    if (timerContainer.style.display == 'flex') {
+        timer(minutos, segundos);
+    }
 }
 
-botaoMusica.addEventListener('click', () => {
-    tocaMusica(botaoMusica);
-});
-
-function tocaMusica(campo) {
-    var som = campo.value;
+function tocaMusica(som) {
     audioAmbiente.pause();
     audioAmbiente.currentTime = 0;
     if (som != 'silencio') {
         audioAmbiente = new Audio(`../sounds/${som}-ambiente.mp3`);
-        audioAmbiente.play();   
+        audioAmbiente.loop = true; 
+        audioAmbiente.play();
     }
+}
+
+function home() {
+    timerContainer.style.display = 'none';
+    configuracoesContainer.style.display = 'flex';
+    tocaMusica('silencio')
+}
+
+function salvaTempo() {
+    localStorage.setItem(atividadeChave, tempoDeAtividade);
 }

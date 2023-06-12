@@ -9,28 +9,35 @@
 .timers .timers_opcoes {
   margin: 1rem;
   display: flex;
-}
-.timers .timers_opcoes .sons_dropdown {
-  background: var(--cor-fundo-timer-destacado);
-  font-size: 24px;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  color: var(--cor-fonte-claro);
-}
-.timers .timers_opcoes .sons_dropdown:hover #sons {
-  display: block;
+  justify-content: space-between;
 }
 .timers .timers_opcoes #sons {
-  display: none;
+  display: block;
   border: none;
-  background: none;
+  background: var(--cor-fundo-timer-destacado);
   width: 10rem;
   height: auto;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
   color: var(--cor-fonte-claro);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.timers .timers_opcoes .home {
+  background: var(--cor-fundo-timer-destacado);
+  border: none;
+  border-radius: 0.5rem;
+  height: 32px;
+  width: 32px;
+}
+.timers .timers_opcoes .home img {
+  height: 24px;
+  width: 24px;
+}
+.timers .timers_opcoes #sons:hover, .timers .timers_opcoes .home:hover {
+  cursor: pointer;
+  background: var(--cor-fundo-timer-botao);
 }
 .timers .timer-ativo_container {
   position: absolute;
@@ -148,12 +155,12 @@
   font-size: 32px;
   border: none;
   padding: 0.25rem 1rem;
-  background: var(--cor-fundo-timer-botao);
+  background: var(--cor-fundo-timer-destacado);
   color: var(--cor-fonte-claro);
   border-radius: 1rem;
 }
 .timers_configuracao .botao-iniciar_container .timer_iniciar:hover {
-  background: var(--cor-fundo-timer-destacado);
+  background: var(--cor-fundo-timer-botao);
   cursor: pointer;
 }
 
