@@ -101,7 +101,7 @@
   height: 100vh;
   position: relative;
 }
-.timers_configuracao::before, .timers_configuracao .timers::before {
+.timers_configuracao::before {
   content: "";
   background-image: var(--fundo-timer);
   position: absolute;

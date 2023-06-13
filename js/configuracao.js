@@ -18,9 +18,10 @@ inputsTempo.forEach(input => {
 });
 
 nomeAtividade.addEventListener('blur', () => {
-    let nome = nomeAtividade.value;
+    let nome = nomeAtividade.value.toLowerCase();
     nome = nome.charAt(0).toUpperCase() + nome.slice(1);
-    nomeAtividade.value = nome;
+    var novoNome = nome.replace(/ /g, '');
+    nomeAtividade.value = novoNome;
 
     if (localStorage.getItem(nomeAtividade.value) != null) {
         var tema = JSON.parse(localStorage.getItem(nomeAtividade.value))['tema'];
