@@ -2,9 +2,20 @@
   position: relative;
   display: none;
   flex-direction: column;
-  background: var(--cor-fundo-timer);
   min-height: 100vh;
   justify-content: space-between;
+  position: relative;
+}
+.timers::before {
+  content: "";
+  background-image: var(--fundo-timer);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  opacity: var(--fundo-opacidade);
 }
 .timers .timers_opcoes {
   margin: 1rem;
@@ -65,12 +76,18 @@
   font-weight: 500;
   color: var(--cor-fonte-claro);
   text-align: center;
+  background: var(--fundo-mensagem);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
 }
 .timers .timer_mensagem {
   color: var(--cor-fonte-medio);
   font-weight: 400;
   margin: 4rem;
   text-align: center;
+  background: var(--fundo-mensagem);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .timers_configuracao {
@@ -78,8 +95,19 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: var(--cor-fundo-timer);
   height: 100vh;
+  position: relative;
+}
+.timers_configuracao::before {
+  content: "";
+  background-image: var(--fundo-timer);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  opacity: var(--fundo-opacidade);
 }
 .timers_configuracao .configuracao_formulario {
   text-align: center;
@@ -148,6 +176,7 @@
 .timers_configuracao .configuracao_formulario .formulario_campo-descricao {
   color: var(--cor-fonte-medio);
   margin: 0.5rem 0;
+  text-shadow: 1px 1px black;
 }
 .timers_configuracao .configuracao_formulario .nome-atividade {
   grid-area: nome;
@@ -249,17 +278,20 @@
 :root {
   --cor-fonte-claro: #E9F8F9;
   --cor-fonte-medio: #DBDFEA;
-  --cor-fundo-timer: #8EA7E9;
+  --fundo-timer: url("./img/backgrounds/azul_background.jpg");
+  --fundo-opacidade: 0.8;
   --cor-fundo-timer-destacado: #7286D3;
   --cor-fundo-timer-botao: #146C94;
   --cor-borda: #FFACB7;
   --fonte-principal: "Montserrat", sans-serif;
+  --fundo-mensagem: rgba(0, 0, 0, 0.5);
 }
 
 .tema-escuro {
   --cor-fonte-claro: #A5E9E1;
   --cor-fonte-medio: #606470;
-  --cor-fundo-timer: #000000;
+  --fundo-timer: url("./img/backgrounds/escuro_background.jpg");
+  --fundo-opacidade: 1;
   --cor-fundo-timer-destacado: #303841;
   --cor-fundo-timer-botao: #1D242B;
 }
@@ -267,17 +299,28 @@
 .tema-verde {
   --cor-fonte-claro: #F7F1E5;
   --cor-fonte-medio: #609966;
-  --cor-fundo-timer: #C7E9B0;
+  --fundo-timer: url("./img/backgrounds/verde_background.jpg");
+  --fundo-opacidade: 0.8;
   --cor-fundo-timer-destacado: #A4BC92;
   --cor-fundo-timer-botao: #539165;
 }
 
 .tema-claro {
-  --cor-fonte-claro: #606470;
+  --cor-fonte-claro: #F7F1E5;
   --cor-fonte-medio: #F2BED1;
-  --cor-fundo-timer: #F9F5F6;
+  --fundo-timer: url("./img/backgrounds/claro_background.jpg");
+  --fundo-opacidade: 0.8;
   --cor-fundo-timer-destacado: #F2BED1;
   --cor-fundo-timer-botao: #97C4B8;
+}
+
+.tema-azul {
+  --cor-fonte-claro: #E9F8F9;
+  --cor-fonte-medio: #DBDFEA;
+  --fundo-timer: url("./img/backgrounds/azul_background.jpg");
+  --fundo-opacidade: 0.8;
+  --cor-fundo-timer-destacado: #7286D3;
+  --cor-fundo-timer-botao: #146C94;
 }
 
 body {

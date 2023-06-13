@@ -2,9 +2,20 @@
     position: relative
     display: none
     flex-direction: column
-    background: var(--cor-fundo-timer)
     min-height: 100vh
     justify-content: space-between
+    position: relative
+
+    &::before
+        content: ''
+        background-image: var(--fundo-timer)
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        z-index: -1
+        opacity: var(--fundo-opacidade)
 
     .timers_opcoes
         margin: 1rem
@@ -62,6 +73,9 @@
             font-weight: 500
             color: var(--cor-fonte-claro)
             text-align: center
+            background: var(--fundo-mensagem)
+            padding: .25rem .5rem
+            border-radius: .25rem
 
         
     .timer_mensagem
@@ -69,5 +83,9 @@
         font-weight: 400
         margin: 4rem
         text-align: center
+        background: var(--fundo-mensagem)
+        padding: .25rem .5rem
+        border-radius: .25rem
+        
             
 

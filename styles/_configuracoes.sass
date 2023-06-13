@@ -3,8 +3,20 @@
     flex-direction: column
     justify-content: space-between
     align-items: center
-    background: var(--cor-fundo-timer)
     height: 100vh
+    position: relative
+
+    &::before
+        content: ''
+        background-image: var(--fundo-timer)
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        z-index: -1
+        opacity: var(--fundo-opacidade)
+
 
     .configuracao_formulario
 
@@ -68,6 +80,7 @@
         .formulario_campo-descricao
             color: var(--cor-fonte-medio)
             margin: .5rem 0
+            text-shadow: 1px 1px black
 
         .nome-atividade
             grid-area: nome

@@ -51,7 +51,7 @@ export function trocarPomodoro(iniciar = false) {
         atividadeChave = document.querySelector('[data-nome="atividade"]').value;
 
         if (localStorage.getItem(atividadeChave) != null) {
-            tempoDeAtividade = localStorage.getItem(atividadeChave);
+            tempoDeAtividade = JSON.parse(localStorage.getItem(atividadeChave))['tempo'];
         }
     }
     
@@ -146,5 +146,14 @@ function home() {
 }
 
 function salvaTempo() {
-    localStorage.setItem(atividadeChave, tempoDeAtividade);
+    var informacoes = {
+        tempo: tempoDeAtividade,
+        tema: document.body.classList[0],
+        timers: {
+            atividade: [document.querySelector('[data-input="atividade-minuto"]').value, document.querySelector('[data-input="atividade-segundo"]').value],
+            descanso: [document.querySelector('[data-input="descanso-minuto"]').value, document.querySelector('[data-input="descanso-segundo"]').value],
+            descansoLongo: [document.querySelector('[data-input="descanso-longo-minuto"]').value, document.querySelector('[data-input="descanso-longo-segundo"]').value]
+        }
+    }
+    localStorage.setItem(atividadeChave, JSON.stringify(informacoes));
 }
