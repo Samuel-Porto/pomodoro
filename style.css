@@ -16,6 +16,9 @@
   right: 0;
   z-index: -1;
   opacity: var(--fundo-opacidade);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .timers .timers_opcoes {
   margin: 1rem;
@@ -98,7 +101,7 @@
   height: 100vh;
   position: relative;
 }
-.timers_configuracao::before {
+.timers_configuracao::before, .timers_configuracao .timers::before {
   content: "";
   background-image: var(--fundo-timer);
   position: absolute;
@@ -108,6 +111,9 @@
   right: 0;
   z-index: -1;
   opacity: var(--fundo-opacidade);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .timers_configuracao .configuracao_formulario {
   text-align: center;
