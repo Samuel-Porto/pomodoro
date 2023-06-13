@@ -39,6 +39,10 @@ nomeAtividade.addEventListener('blur', () => {
 });
 
 function formataTempo(campo) {
+    if (['atividade-segundo', 'descanso-segundo', 'descanso-longo-segundo'].includes(campo.dataset.input) && campo.value >= 60) {
+        campo.value = 0;
+    }
+    
     campo.value = campo.value.replace(/[^0-9]/g, '0');
     campo.value = campo.value.padStart(2, '0');
 }
