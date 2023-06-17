@@ -4,10 +4,9 @@ const inputsTempo = document.querySelectorAll('[data-input]');
 const temas = document.querySelectorAll('[data-temas]');
 const nomeAtividade = document.querySelector('[data-nome="atividade"]');
 const iniciar = document.querySelector('[data-botao="iniciar"]');
+const botaoHistorico = document.querySelector('[data-botao="historico"]');
 
 const temasLista = ['tema-escuro', 'tema-azul', 'tema-verde', 'tema-claro'];
-
-document.body.classList.add('tema-azul');
 
 iniciar.addEventListener("click", () => {trocarPomodoro(true)});
 
@@ -15,6 +14,16 @@ inputsTempo.forEach(input => {
     input.addEventListener('blur', () => {
         formataTempo(input);
     });
+});
+
+temas.forEach(tema => {
+    tema.addEventListener('click', () => {
+        trocaTema(tema.dataset.temas)
+    });
+});
+
+botaoHistorico.addEventListener('click', () => {
+    window.location = '../pages/historico.html';
 });
 
 nomeAtividade.addEventListener('blur', () => {
@@ -47,16 +56,14 @@ function formataTempo(campo) {
     campo.value = campo.value.padStart(2, '0');
 }
 
-temas.forEach(tema => {
-    tema.addEventListener('click', () => {
-        trocaTema(tema.dataset.temas)
-    });
-});
-
 function trocaTema(tema) {
         
     temasLista.forEach(temaLista => {
+        const config = {
+            temaAtual: tema
+        }
         document.body.classList.remove(temaLista);
+        localStorage.setItem('config', JSON.stringify(config))
     });
     
     document.body.classList.add(tema);
