@@ -28,9 +28,11 @@ function mostraAtividades() {
     Object.keys(atividades).forEach(atividade => {
         const div = document.createElement('div');
         div.className = 'atividade';
+        const atividadeMinuto = Math.floor(atividades[atividade]['tempo']/60);
+        const atividadeSegundo = atividades[atividade]['tempo']%60;
         div.innerHTML = `
         <h3>${atividade}</h3>
-        <p>${Math.floor(atividades[atividade]['tempo']/60)}:${atividades[atividade]['tempo']%60}</p>
+        <p>${atividadeMinuto}:${String(atividadeSegundo).padStart(2, '0')}</p>
         `
         listaAtividade.appendChild(div);
         console.log('lob')
